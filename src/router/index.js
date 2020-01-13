@@ -17,7 +17,7 @@ export default new Router({
   routes: [
     {
       path:'',
-      redirect:'Vuex',
+      redirect:'home',
     },
     {
       path:'/home',

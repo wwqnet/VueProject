@@ -96,6 +96,52 @@ export default {
     }
   }
 };
+
+
+// Promise写法一：
+// const aa = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     reject("reject接收请求后的返回参数");
+//     // resolve("resolve接收请求后的返回参数");
+//   }, 1000);
+// }).then(
+//   data => {
+//     console.log("resolve请求后的返回参数" + data);
+//     // Promise写法二
+//     return new Promise((resolve, reject) => {
+//       setTimeout(() => {
+//         // resolve(data);
+//         reject("失败");
+//       });
+//     })
+//       .then(data => {
+//         console.log("成功" + data);
+//         // 简写方法一
+//         // return Promise.resolve("简写方法一" + data);
+//         // return Promise.reject("简单写法一错误")
+//         throw '我是手动抛出去的异常'
+//       }).then((data)=>{
+//           console.log(data + "2");
+//           // return Promise.resolve("简写方法一");
+//           return Promise.reject("简单写法一错误")
+//           // return data + "简写方法二"
+//       }).then((data)=>{
+//         console.log(data+"3");
+//         //  return Promise.resolve("简写方法一");
+//          return Promise.reject("简单写法一错误")
+//       }).then((data)=>{
+//         console.log(data+"4");
+//       }).catch((err)=>{
+//          console.log(err+"2");
+//       })
+//       .catch(err => {
+//         console.log(err+"1");
+//       });
+//   },
+//   err => {
+//     console.log("reject请求后的返回参数" + err);
+//   }
+// ); 
 </script>
 <style  scoped>
 </style>
