@@ -8,7 +8,8 @@
 <script>
 // import TabBar from "./components/tabbar/tabbar";
 // import TabBarItem from "./components/tabbar/TabBarItem";
-import MianTabBar from "./components/tabbar/Miantabbar";
+
+import MianTabBar from "./components/content/Miantabbar";
 export default {
   name: "App",
   components: {
@@ -21,8 +22,5 @@ export default {
 @import "./assets/css/base.css";
 #app {
   margin-bottom: 49px;
-  /* height: 100%; */
-  /* overflow-x: hidden;  */
-  /* overflow-y: scroll;  */
 }
 </style>
