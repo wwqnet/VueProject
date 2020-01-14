@@ -23,6 +23,7 @@ export default {
     created(){
         //1. 发送请求多个数据
         getHomeMultidate().then(res =>{
+            console.log(res + "我将更改数据信息")
             this.date = res;
         });
     }
