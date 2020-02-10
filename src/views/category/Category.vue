@@ -4,14 +4,19 @@
       <div slot="left">返回</div>
       <div slot="center">分类</div>
     </nav-bar>
+    <category-content/>
   </div>
 </template>
 <script>
 import NavBar from "@/components/common/navbar/NavBar";
+import CategoryContent from "@/views/category/CategoryContent"
+
+
 export default {
   name: "Category",
   components: {
-    NavBar
+    NavBar,
+    CategoryContent
   }
 };
 </script>
@@ -20,5 +25,7 @@ export default {
     background-color:slategray;
     text-align: center;
     color: white;
+    position: sticky;
+    top: 0;
 }
 </style>
