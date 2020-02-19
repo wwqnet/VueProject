@@ -83,27 +83,27 @@ import Axios from "axios";
 // }
 
 
-export function request(config){
-        const instance = Axios.create({
-            baseURL:'',
-            timeout:5000
-        })
+// export function request(config){
+//         const instance = Axios.create({
+//             baseURL:'',
+//             timeout:5000
+//         })
        
-// Axios 拦截器   请求拦截
-       instance.interceptors.request.use(res=>{
-        //    res拦截参数是config,拦截后需要再将参数return 返回
-           console.log(res)
-           return res
-       },err =>{
+// // Axios 拦截器   请求拦截
+//        instance.interceptors.request.use(res=>{
+//         //    res拦截参数是config,拦截后需要再将参数return 返回
+//            console.log(res)
+//            return res
+//        },err =>{
 
-       })
-    //    响应拦截
-       instance.interceptors.response.use(res=>{
-        //   res为返回的结果，通常做数据的处理过滤等等
-        console.log(res)
-        return res
-       },err=>{
+//        })
+//     //    响应拦截
+//        instance.interceptors.response.use(res=>{
+//         //   res为返回的结果，通常做数据的处理过滤等等
+//         console.log(res)
+//         return res
+//        },err=>{
 
-       })
-       return instance(config)
-}
+//        })
+//        return instance(config)
+// }

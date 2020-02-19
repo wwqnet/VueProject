@@ -1,10 +1,20 @@
 // The Vue build version to load with the `import` command
+//baseURL='http://106.54.54.237:8080/api/hy' baseURL='http://123.207.32.32:8000/api/hy'
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
 // import Axios from 'axios';
+import '@/element_ui'
+import 'element-ui/lib/theme-chalk/index.css';
+// 使用vant  ui组件库
+import { Swipe, SwipeItem,Tab, Tabs  } from 'vant';
+import 'vant/lib/index.css';
+Vue.use(Swipe);
+Vue.use(SwipeItem);
+Vue.use(Tab);
+Vue.use(Tabs);
 
 Vue.config.productionTip = false
 
@@ -58,7 +68,7 @@ new Vue({
 // }))
 
 // 使用封装的Axios请求 
-import {request} from './AxiosRequest'
+// import {request} from './AxiosRequest'
 // request({
 //   url:'http://httpbin.org',
 // },(res)=>{
@@ -84,13 +94,13 @@ import {request} from './AxiosRequest'
 // request(config)
 
 // Promise实例Axios
-request({
-  url:'http://httpbin.org',
-}).then((res)=>{
-  console.log(res)
-}).catch((err)=>{
-  console.log(err)
-})
+// request({
+//   url:'http://httpbin.org',
+// }).then((res)=>{
+//   console.log(res)
+// }).catch((err)=>{
+//   console.log(err)
+// })
 
 
 

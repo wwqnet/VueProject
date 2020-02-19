@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav-bar class="category">
-      <div slot="left">返回</div>
+      <div slot="left"><i class="el-icon-arrow-left"></i></div>
       <div slot="center">分类</div>
     </nav-bar>
     <category-content/>
@@ -9,7 +9,7 @@
 </template>
 <script>
 import NavBar from "@/components/common/navbar/NavBar";
-import CategoryContent from "@/views/category/CategoryContent"
+import CategoryContent from "@/views/category/CategoryContent";
 
 
 export default {
