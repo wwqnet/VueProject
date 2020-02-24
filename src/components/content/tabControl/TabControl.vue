@@ -11,11 +11,12 @@
     <!-- <tabs v-model="active" sticky>
       <tab v-for="(items,index) in titles" :key="index">内容 {{ items }}</tab>
     </tabs>-->
-    <van-tabs  v-model="active" @click="tabclick" sticky>
-      <van-tab v-for="(items,index) in goodsinfo.title"  :title="items"  :key="index"  >
-          <goods-list :goodsiteminfo ="goodsinfo.data[tabcurrentType]"></goods-list>
+    <van-tabs  v-model="active" @click="tabclick" >
+      <van-tab v-for="(items,index) in goodsinfotitle"  :title="items"  :key="index"  >
+        <template v-if="goodsinfo.data">
+          <goods-list  :goodsiteminfo="goodsinfo.data[tabcurrentType]"></goods-list>
+        </template> 
       </van-tab>
-      
     </van-tabs>
   </div>
 </template>
@@ -32,25 +33,31 @@ export default {
         return {};
       }
     },
+    goodsinfotitle:{
+       type:Array,
+       default:[]
+    },
     tabcurrentType:{
        type:String,
        default(){
            return ''
        }
+    },tabcontrolAvtive:{
+      type:Number
     }
   },
   data() {
     return {
       currindex: 0,
       currdateinfo:"pop",
-      active: ""
+      active: 0
     };
   },
   components: {
       GoodsList
   },
   created(){
-    console.log(this.goodsinfo)
+    this.active = this.tabcontrolAvtive;
   },
   methods: {
     tabclick(index) {

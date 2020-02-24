@@ -5,7 +5,7 @@ const Home = () => import('../views/home/Home')
 const Category = () => import('../views/category/Category')
 const Cart = () => import('../views/cart/Cart')
 const Profile = () => import('../views/profile/Profile')
-
+const Detail = () =>import('../views/detail/Detail')
 // import Home from '../views/home/Home'
 // import Category from '../views/category/Category'
 // import Cart from '../views/cart/Cart'
@@ -38,6 +38,10 @@ export default new Router({
     {
       path:'/Vuex',
       component:Vuex
+    },
+    {
+      path:'/detail/:id',
+      component:Detail
     }
   ],
   mode:'history'

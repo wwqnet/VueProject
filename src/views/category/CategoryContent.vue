@@ -111,14 +111,32 @@ import BScroll from "better-scroll";
 export default {
   name: "CategoryContent",
   data() {
-    return {};
+    return {
+      scroll:null
+    };
   },
 
   mounted() {
     let wrapper = document.querySelector(".wrapper");
-    let scroll = new BScroll(wrapper);
+    this.scroll = new BScroll(wrapper,{
+      probeType:3,
+      pullUpLoad:{
+        threshold:50
+      }
+    });
+    // 监听滚动事件 probeType 属性  默认为0 ，1为
+    this.scroll.on('scroll',(position) => {
+      // console.log(position);
+    });
+    // 监听pullingup事件
+    this.scroll.on("pullingUp",()=>{
+      console.log('上拉加载更多！')
+    })
   }
 };
 </script>
 <style  scoped>
+.wrapper{
+  height: 300px;
+}
 </style>

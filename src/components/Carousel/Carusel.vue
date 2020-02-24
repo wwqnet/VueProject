@@ -5,11 +5,11 @@
         <img class="bannerwith" :src="item.image" alt="">
       </el-carousel-item>
     </el-carousel> -->
-    <van-swipe class="my-swipe" :autoplay="3000" height="203px" indicator-color="white">
+    <van-swipe class="my-swipe" :autoplay="3000" height="200px" indicator-color="white">
         <van-swipe-item v-for='(item,index) in bannerlist' :key="index">
-            <a :href="item.link">
-                <img :src="item.image" alt="">
-            </a>
+            <!-- <a :href="item.link"> -->
+                <img :src="item.image" alt=""  @load="swipeimgload">
+            <!-- </a> -->
         </van-swipe-item>
     </van-swipe>
   </div>
@@ -22,18 +22,27 @@ export default {
    props: ['bannerlist'],
     data(){
         return {
-            data:null
+            data:null,
+            isload:false
         }
-    }
+    },
+    methods: {
+      swipeimgload(){
+        if(!this.isload){
+         this.$emit("swipeimgload");
+         this.isload = true
+        }
+      }
+    },
 }
 </script>
 <style>
 
-/* .swipeblock{
+.swipeblock{
     width: 100%;
-    height: 200px;
+    /* height: 200px; */
 }
-.my-swipe .van-swipe-item {
+/* .my-swipe .van-swipe-item {
   height: 100%;
   color: #fff;
   font-size: 20px;
@@ -42,7 +51,7 @@ export default {
   background-color: #39a9ed;
 } */
 .my-swipe img{
- height: 203px;
+ height: 200px;
  width: 100%;
 }
 

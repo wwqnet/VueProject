@@ -9,15 +9,17 @@ import store from './store'
 import '@/element_ui'
 import 'element-ui/lib/theme-chalk/index.css';
 // 使用vant  ui组件库
-import { Swipe, SwipeItem,Tab, Tabs  } from 'vant';
+import { Swipe, SwipeItem,Tab, Tabs ,Icon } from 'vant';
 import 'vant/lib/index.css';
 Vue.use(Swipe);
 Vue.use(SwipeItem);
 Vue.use(Tab);
 Vue.use(Tabs);
-
+Vue.use(Icon);
 Vue.config.productionTip = false
 
+// 设置事件总线$bus 
+Vue.prototype.$bus = new Vue();
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
