@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="vuex">
     <h3>-----------我是VueX的内容--------------</h3>
     <h2>{{message}}</h2>
     <h5>{{$store.state.count}}</h5>
@@ -14,11 +14,13 @@
     <h5>{{$store.getters.studentsGetter}}</h5>
     <h5>{{$store.getters.studentsGetterfun(30)}}</h5>
     <h3>-----------响应式修改值内容--------------</h3>
+    <h5>{{$store.state.students}}</h5>
     <button @click="addstude">添加学生</button>
     <h3>-----------mutation常量类型--------------</h3>
     <button @click="mutation">定义常量++</button>
     <h3>-----------action异步更新数据信息--------------</h3>
     <button @click="action">{{$store.state.info.name}}</button>
+    <button @click="aUpdateInfo('haha')">{{$store.state.info.name}}</button>
     <h3>-----------modules数据信息--------------</h3>
     <h2>{{$store.state.a.name}}</h2>
     <h3>-----------modules修改数据信息--------------</h3>
@@ -28,7 +30,8 @@
 
 <script>
 import Test from "../Test/Test";
-import {MUTAYION} from '@/store/mutationType'
+import {MUTAYION} from '@/store/mutationType';
+import {mapActions} from 'vuex'
 export default {
   name: "Vuex",
   data() {
@@ -59,7 +62,7 @@ export default {
         count,
         age: "18"
       });
-    },
+    }, 
     dec() {
       this.$store.commit("dec");
     },
@@ -87,10 +90,12 @@ export default {
         //     }
         // })
         // 写法二
-        this.$store.dispatch('aUpdateInfo','我是携带的信息').then( (res) => {
+        let data  = {type:"字符串",age:18}
+        this.$store.dispatch('aUpdateInfo',data).then( (res) => {
             console.log(res)
         })
     },
+    ...mapActions(['aUpdateInfo']),
     modulesUpdata(){
         this.$store.commit('modulesUpdata')
     }
@@ -144,4 +149,8 @@ export default {
 // ); 
 </script>
 <style  scoped>
+.vuex{
+      overflow: scroll;
+    height: 300px;
+}
 </style>

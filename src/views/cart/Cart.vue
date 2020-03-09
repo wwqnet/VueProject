@@ -1,14 +1,16 @@
 <template>
- <div>
+ <div class="cart_div">
      <nav-bar class="cart">
          <div slot="left">返回</div>
          <div slot="center">购物车({{count}})</div> 
      </nav-bar>
+     <vuex></vuex>
  </div>
     
 </template>
 <script>
-import NavBar from '@/components/common/navbar/NavBar'
+import NavBar from '@/components/common/navbar/NavBar';
+import Vuex from '@/views/Vuex/Vuex'
 export default {
     name:"Cart",
      data(){
@@ -18,7 +20,8 @@ export default {
         }
     },
     components:{
-        NavBar
+        NavBar,
+        Vuex
     }
 }
 </script>

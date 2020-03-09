@@ -6,7 +6,7 @@ Vue.use(Vuex)
 
 // 2.创建对象
 const store = new Vuex.Store({
-    state: {
+    state: {   // 全局存放状态
         count: 100,
         students: [
             { id: 11, name: "kobe", age: "18" },
@@ -19,7 +19,7 @@ const store = new Vuex.Store({
             name: "kob"
         }
     },
-    mutations: {
+    mutations: {   //修改全局state状态 需要通过mutations 
         // mutation常量类型
         [MUTAYION](state) {
             state.count++;
@@ -44,7 +44,7 @@ const store = new Vuex.Store({
         }
     },
     // 异步操作
-    actions: {
+    actions: {    //单纯的业务逻辑
         //   context上下文,payload组件方法的参数
         // 写法一
         //   aUpdateInfo(context,payload){
@@ -65,7 +65,7 @@ const store = new Vuex.Store({
             })
         }
     },
-    getters: {
+    getters: {   //对state数据进行包装  ，例如过滤等类似于计算属性
         powerCount(state) {
             return state.count * state.count
         },
